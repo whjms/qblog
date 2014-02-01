@@ -1,0 +1,4 @@
+qblog
+==
+
+This is a simple project I gave to myself. Hopefully it remains simple. It's a static blog generator made with Python.
