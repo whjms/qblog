@@ -1,0 +1,8 @@
+/data:
+  contains data files for posts (the special format files used to generate posts etc)
+/templates:
+  template files
+/web:
+  used as the root directory by the web server. contains the homepage, css, all html files etc
+  
+The root directory will contain the script.

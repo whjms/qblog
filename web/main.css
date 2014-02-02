@@ -1,0 +1,91 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #dedede;
+	font-family: sans-serif;
+}
+a {
+	color: #09a;
+}
+a:hover {
+	color: #0bc;
+}
+#header a {
+	color: #777;
+	font-size: 25pt;
+	font-weight: bold;
+	display: block;
+	border-bottom: 1px solid #aaa;
+	text-decoration: none;
+	margin: 0;
+	padding: 3px;
+}
+#header a:hover {
+	text-decoration: underline;
+}
+#sidebar {
+	float: left;
+	width: 200px;
+	padding-bottom: 30px;
+	border-right: 1px solid #aaa;
+}
+#sidebar #author-pic {
+	width: 90%;
+	margin: 10px auto;
+}
+#sidebar #about-me {
+	font-style: italic;
+	font-size: 9pt;
+	color: #555;
+	padding-bottom: 5px;
+}
+#sidebar p {
+	width: 90%;
+	color: #333;
+	margin: 5px auto;
+}
+#sidebar #author-pic img {
+	width: 100%;
+}
+#sidebar #links {
+	border-top: 1px solid #ccc;
+	width: 90%;
+	margin: 0 auto;
+}
+#sidebar #links ul {
+	list-style-type: none;
+	padding: 0px;
+}
+#sidebar #links ul li {
+	margin: 3px;
+}
+#content {
+	margin-left: 200px;
+}	
+.post {
+	margin: 10px;
+}
+.post-header p {
+	margin: 0;
+}
+.post-title {
+	font-size: 15pt;
+	font-weight: bold;
+	padding: 5px;
+	border-bottom: 1px solid #777;
+}
+.post-timestamp {
+	font-size: 10pt;
+	color: #444;
+	text-align: right;
+	padding: 3px;
+}
+.full-link {
+	text-align: right;
+	text-decoration: none;
+	padding: 5px;
+	font-size: 10pt;
+}
+.full-link a {
+	margin: 0;
+}
