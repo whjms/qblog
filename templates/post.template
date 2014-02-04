@@ -8,5 +8,5 @@
       <div class="post-content">
         <p>%%%POST-CONTENT%%%</p>
       </div>
-      <div class="full-link"><a href="/2014/02/06/test.html">%%%FULL-LINK%%%</a></div>
+      <div class="full-link"><a href="%%%FULL-LINK%%%">Read More</a></div>
 </div>
