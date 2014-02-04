@@ -1,0 +1,7 @@
+A Test Post
+02/04/2014
+15:38
+/2014/02/test-post.html
+<p>This is an example of a data file for a post.</p><p>This first line is the preview content <em>(i.e. the stuff that's seen on the homepage)</em>. It's a pretty ugly workaround, but I can't figure out a guaranteed way of separating the preview from the main content.</p>
+<p>This is an example of a data file for a post.</p><p>This first line is the preview content <em>(i.e. the stuff that's seen on the homepage)</em>. It's a pretty ugly workaround, but I can't figure out a guaranteed way of separating the preview from the main content.</p>
+<p>Everything after line 4 is the body of the post. This is the stuff that gets shown when you click on the 'view more' link on the homepage.</p>
