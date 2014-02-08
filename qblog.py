@@ -1,22 +1,22 @@
-# todo: 
-#	come up with a Post class that is used to store parsed data
-#	read up on how to read, create files etc.
+# 
 class Post(object):
-	def __init__(self, title, date, time, filepath, preview, body):
-		self.title = title
-		self.date = date
-		self.time = time
-		self.filepath = filepath
-		self.preview = preview
-		self.body = body
+	def __init__(self, filename):
+		self.data = parse(filename)
 
-	# create html file for this post
-	def gen_post_html():
+	# return a tuple containint title, date, time, file path, preview, and post
+	# body. post_data is in the following format:
+	# 	post_data = (title, date, time, file_path, preview, body)
+	def parse(filename):
 		pass
 
-# given data from a .post file, returns a Post object corresponding to the file
-def gen_post(post_data):
-	pass
+	# create html file for this post
+	def gen_post_html(self):
+		pass
+
+	# return a specific value from post_data, given either:
+	# 	'title', 'date', 'time', 'file_path', 'preview', or 'body'
+	def get(value):
+		pass
 
 # goes through the /data folder, parsing the files and generating the proper
 # HTML files in the proper locations, as well as creating links as required.
