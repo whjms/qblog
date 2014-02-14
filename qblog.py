@@ -40,6 +40,7 @@ class Post(object):
 
 # generates all of the HTML files for each post, as well as the homepage
 def generate():
+	print("Generating posts...")
 	# need to deal with running this script outside of the script's directory
 	# - this gets the absolute path of this script, appending the subdirs to it
 	import os
@@ -51,8 +52,12 @@ def generate():
 	page_file.close()
 	post_file.close()
 
-	# generate this by looking though the /data directory
-	posts = [Post("H:/documents/qblog/data/test-post.post")]
+	# generate the list of Posts by looping through /data
+	posts = []
+	for filename in os.listdir(script_dir + "/data"):
+		if filename.endswith(".post"):
+			posts.append(Post(script_dir + "/data/" + filename))
+
 	for post in posts:
 		gen_post(page_template, post_template, post, script_dir)
 	gen_homepage(page_template, post_template, posts, script_dir)
@@ -81,7 +86,7 @@ def gen_post(page_template, post_template, post, script_dir):
 	page_html = page_template.replace("%%%posts%%%", post_html)
 
 	print(page_html, file=open(postpath, "w"))
-	print("Generated \'" + post.get("title") + "\'")
+	print("\tgenerated \'" + post.get("title") + "\'")
 
 # generates the homepage, putting templates for each post on it
 # page_template: the template for the homepage

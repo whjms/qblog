@@ -9,8 +9,8 @@
   	<a href="/index.html">%%%blog-title%%%</a>
   </div>
   <div id="sidebar">
-  	<div id="author-pic"><img src="images/me.jpg"></div>
-  	<p id="about-me">Qasim Ali, some guy who likes computers and taking photos.</p>
+  	<div id="author-pic"><img src="/images/me.jpg"></div>
+  	<p id="about-me">Who is this person?</p>
   	<p>This is dummy text. Eventually (or maybe hopefully), the final version of the blog will have more stuff here.</p>
   	<p>This section will probably contain info about me and links to my stuff.</p>
   	<div id="links">
