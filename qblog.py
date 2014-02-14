@@ -38,9 +38,8 @@ class Post(object):
 				"body"].index(value)
 		return self.post_data[idx]
 
-# goes through the /data folder, parsing the files and generating the proper
-# HTML files in the proper locations, as well as creating links as required.
-def gen_posts():
+# generates all of the HTML files for each post, as well as the homepage
+def generate():
 	# need to deal with running this script outside of the script's directory
 	# - this gets the absolute path of this script, appending the subdirs to it
 	import os
@@ -52,11 +51,11 @@ def gen_posts():
 	page_file.close()
 	post_file.close()
 
-	# generate this by finding all .post files in data/, and parsing them
-	post_list = [Post("H:/documents/qblog/data/test-post.post")]
-
-	for post in post_list:
+	# generate this by looking though the /data directory
+	posts = [Post("H:/documents/qblog/data/test-post.post")]
+	for post in posts:
 		gen_post(page_template, post_template, post, script_dir)
+	gen_homepage(page_template, post_template, posts, script_dir)
 
 # Generates the html file for the given post, according to the given templates
 # page_template: a string representing the template for the entire page
@@ -82,15 +81,18 @@ def gen_post(page_template, post_template, post, script_dir):
 	page_html = page_template.replace("%%%posts%%%", post_html)
 
 	print(page_html, file=open(postpath, "w"))
-	print("Generated " + post.get("title"))
+	print("Generated \'" + post.get("title") + "\'")
 
-# goes through the /data folder, getting post titles, previews, and locations,
-# putting a preview for each post on the homepage
-def gen_homepage():
+# generates the homepage, putting templates for each post on it
+# page_template: the template for the homepage
+# post_template: the template for each post
+# posts: a list of Posts to generate the homepage for
+# script_dir: the absolute path to this script's directory
+def gen_homepage(page_template, post_template, posts, script_dir):
 	pass
 
 def main():
-	gen_posts()
+	generate()
 
 if __name__ == "__main__":
 	main()
