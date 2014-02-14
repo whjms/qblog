@@ -1,3 +1,4 @@
+import os
 class Post(object):
 	def __init__(self, filename):
 		self.parse_data(filename)
@@ -6,7 +7,7 @@ class Post(object):
 	# body. post_data is in the following format:
 	# 	post_data = (title, date, time, file_path, preview, body)
 	def parse_data(self, filename):
-		f = open(filename, 'r')
+		f = open(filename, "r")
 		lines = f.read().splitlines()
 		title = lines[0]
 		date = lines[1]
@@ -25,10 +26,6 @@ class Post(object):
 			# use a tuple, since there's no reason to ever edit a post
 			self.post_data = (title, date, time, file_path, preview, body)
 
-	# create html file for this post
-	def gen_post_html(self):
-		pass
-
 	# string representation: all values in post_data
 	def __str__(self):
 		return "\n".join(value for value in self.post_data)
@@ -44,7 +41,48 @@ class Post(object):
 # goes through the /data folder, parsing the files and generating the proper
 # HTML files in the proper locations, as well as creating links as required.
 def gen_posts():
-	pass
+	# need to deal with running this script outside of the script's directory
+	# - this gets the absolute path of this script, appending the subdirs to it
+	import os
+	script_dir = os.path.dirname(os.path.realpath(__file__))
+	page_file = open(script_dir + "/templates/homepage.template", "r")
+	post_file = open(script_dir + "/templates/post.template", "r")
+	page_template = page_file.read()
+	post_template = post_file.read()
+	page_file.close()
+	post_file.close()
+
+	# generate this by finding all .post files in data/, and parsing them
+	post_list = [Post("H:/documents/qblog/data/test-post.post")]
+
+	for post in post_list:
+		gen_post(page_template, post_template, post, script_dir)
+
+# Generates the html file for the given post, according to the given templates
+# page_template: a string representing the template for the entire page
+# post_template: a string representing the template for a single post, to be
+#                subbed into the page template
+# post: the Post to generate this page for
+# script_dir: string representation of the absolute path to this script's
+#             directory
+def gen_post(page_template, post_template, post, script_dir):
+	postpath = script_dir + "/web/" + post.get("file_path")
+	postdir = os.path.dirname(postpath)
+	if not os.path.exists(postdir):
+		os.makedirs(postdir)
+
+	# fill out the post template
+	post_html = post_template.replace("%%%post-title%%%", post.get("title"))
+	post_html = post_html.replace("%%%post-timestamp%%%",
+		post.get("date") + ", " + post.get("time"))
+	post_html = post_html.replace("%%%post-content%%%", post.get("body"))
+	post_html = post_html.replace("%%%full-link%%%", post.get("file_path"))
+
+	# fill out the page template
+	page_html = page_template.replace("%%%posts%%%", post_html)
+
+	print(page_html, file=open(postpath, "w"))
+	print("Generated " + post.get("title"))
 
 # goes through the /data folder, getting post titles, previews, and locations,
 # putting a preview for each post on the homepage
@@ -52,8 +90,7 @@ def gen_homepage():
 	pass
 
 def main():
-	p = Post(r"data\test-post.post")
-	print(p)
+	gen_posts()
 
 if __name__ == "__main__":
 	main()

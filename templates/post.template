@@ -1,12 +1,12 @@
-<div class="post">
+  <div class="post">
       <div class="post-header">
         <p class="post-title">
-          %%%POST-TITLE%%%
+          %%%post-title%%%
         </p>
-        <p class="post-timestamp">%%%POST-TIMESTAMP</p>
+        <p class="post-timestamp">%%%post-timestamp%%%</p>
       </div>
       <div class="post-content">
-        <p>%%%POST-CONTENT%%%</p>
+        <p>%%%post-content%%%</p>
       </div>
-      <div class="full-link"><a href="%%%FULL-LINK%%%">Read More</a></div>
+      <div class="full-link"><a href="%%%full-link%%%">Permalink</a></div>
 </div>
